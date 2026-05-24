@@ -2,7 +2,7 @@
 
 我的個人作品集網站，記錄資料分析、AI 應用與商業問題探索的 Side Project。
 
-> 🌐 Live demo: https://your-domain.com
+> 🌐 Live demo: https://mr-chentb-portfolio.vercel.app/#about
 
 ## ✨ Features
 
