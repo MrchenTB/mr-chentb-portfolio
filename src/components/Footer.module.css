@@ -1,0 +1,35 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: 36px;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.left,
+.right {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mark {
+  color: var(--gold);
+}
+
+.back {
+  color: var(--text);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast) var(--ease);
+}
+
+.back:hover {
+  border-bottom-color: var(--gold);
+}

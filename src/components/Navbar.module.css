@@ -1,0 +1,218 @@
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background var(--t-base) var(--ease),
+    border-color var(--t-base) var(--ease),
+    backdrop-filter var(--t-base) var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.scrolled {
+  background: rgba(250, 248, 244, 0.78);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom-color: var(--border);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 18px var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.brandMark {
+  color: var(--gold);
+  font-size: 12px;
+  transform: translateY(-1px);
+}
+
+.brandText {
+  white-space: nowrap;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.link {
+  position: relative;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  border-radius: var(--r-sm);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 1px;
+  background: var(--gold);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform var(--t-base) var(--ease);
+}
+
+.link:hover {
+  color: var(--text);
+}
+
+.link:hover::after {
+  transform: scaleX(1);
+}
+
+.cta {
+  margin-left: 8px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  transition: border-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease);
+}
+
+.cta:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  background: rgba(var(--gold-rgb), 0.06);
+}
+
+.langSwitch {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 3px;
+  background: rgba(250, 248, 244, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+}
+
+.langBtn {
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color var(--t-fast) var(--ease),
+    background var(--t-fast) var(--ease);
+}
+
+.langBtn:hover {
+  color: var(--gold-deep);
+}
+
+.langBtnActive {
+  color: var(--gold-deep);
+  background: rgba(var(--gold-rgb), 0.12);
+}
+
+@media (max-width: 760px) {
+  .mobile .langSwitch {
+    align-self: flex-start;
+    margin-top: 8px;
+  }
+}
+
+.menuBtn {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid var(--border-strong);
+}
+
+.bar {
+  position: absolute;
+  left: 50%;
+  width: 16px;
+  height: 1.5px;
+  background: var(--text);
+  transition: transform var(--t-base) var(--ease),
+    opacity var(--t-fast) var(--ease);
+  transform: translate(-50%, 0);
+}
+
+.bar:nth-child(1) {
+  top: 16px;
+}
+.bar:nth-child(2) {
+  top: 22px;
+}
+
+.barOpen1 {
+  transform: translate(-50%, 3px) rotate(45deg);
+}
+.barOpen2 {
+  transform: translate(-50%, -3px) rotate(-45deg);
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .links {
+    display: none;
+  }
+  .menuBtn {
+    display: inline-block;
+  }
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px var(--gutter) 16px;
+    background: rgba(250, 248, 244, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--t-base) var(--ease),
+      padding var(--t-base) var(--ease);
+    padding-block: 0;
+  }
+  .mobileOpen {
+    max-height: 320px;
+    padding-block: 8px 16px;
+  }
+  .mobileLink {
+    padding: 12px 4px;
+    font-size: 16px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .mobileLink:last-child {
+    border-bottom: 0;
+  }
+}

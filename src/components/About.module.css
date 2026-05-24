@@ -1,0 +1,230 @@
+.about {
+  position: relative;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.25fr;
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.left {
+  position: sticky;
+  top: 100px;
+}
+
+.heading {
+  margin-top: 6px;
+  margin-bottom: 1px;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.8vw, 34px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.photoWrap {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.photo {
+  display: block;
+  height: clamp(320px, 34vw, 400px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ── Personal note toggle ── */
+
+.noteWrap {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.noteToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 18px;
+  font-size: 12.5px;
+  font-family: var(--sans);
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    border-color var(--t-fast) var(--ease),
+    color var(--t-fast) var(--ease),
+    box-shadow var(--t-fast) var(--ease);
+}
+
+.noteToggle:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep);
+  box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.08);
+}
+
+/* Override the global :focus-visible border-radius so the outline stays pill-shaped. */
+.noteToggle:focus-visible {
+  border-radius: 999px;
+}
+
+.noteIcon {
+  display: block;
+  font-size: 15px;
+  line-height: 1;
+  color: var(--gold);
+  transition: transform var(--t-base) var(--ease);
+}
+
+.noteIconOpen {
+  transform: rotate(45deg);
+}
+
+.noteBody {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 220ms var(--ease),
+    opacity 200ms var(--ease);
+}
+
+.noteBodyOpen {
+  max-height: 240px;
+  opacity: 1;
+}
+
+.motto {
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 18px 0 4px;
+  text-align: center;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-style: italic;
+  font-weight: 400;
+  border: 0;
+}
+
+.motto::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 14px;
+}
+
+/* ── Right column ── */
+
+.right {
+  color: var(--text-muted);
+  font-size: 17px;
+  line-height: 1.75;
+  max-width: 56ch;
+}
+
+.lead {
+  color: var(--text);
+  font-size: 19px;
+  line-height: 1.65;
+  margin-bottom: 18px;
+}
+
+.right p + p {
+  margin-top: 16px;
+}
+
+.facts {
+  margin: 44px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.fact {
+  margin: 0;
+}
+
+.fact dt {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+
+.fact dd {
+  margin: 0;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+
+@media (max-width: 820px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .left {
+    position: static;
+  }
+  .photoWrap {
+    margin-top: 12px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .photo {
+    height: clamp(240px, 60vw, 340px);
+    width: auto;
+    max-width: 100%;
+  }
+  .noteWrap {
+    align-items: flex-start;
+  }
+  .motto {
+    text-align: left;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .motto::before {
+    margin-left: 0;
+  }
+  .right {
+    max-width: none;
+  }
+  .facts {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .fact {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+  }
+  .fact:last-child {
+    border-bottom: 0;
+  }
+  .fact dt {
+    margin-bottom: 0;
+  }
+}

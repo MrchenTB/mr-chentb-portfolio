@@ -1,0 +1,60 @@
+:root {
+  /* Surfaces */
+  --bg: #faf8f4;
+  --bg-soft: #f3eee3;
+  --surface: #ffffff;
+
+  /* Text */
+  --text: #14110e;
+  --text-muted: #5c5751;
+  --text-soft: #8a847c;
+
+  /* Borders */
+  --border: #ece5d6;
+  --border-strong: #ddd3bd;
+
+  /* Accent — muted gold */
+  --gold: #c4992a;
+  --gold-soft: #e6cd8b;
+  --gold-deep: #8a6a18;
+  --gold-rgb: 196, 153, 42;
+
+  /* Typography */
+  --sans:
+    'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Layout */
+  --max-w: 1180px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --section-y: clamp(72px, 10vw, 140px);
+
+  /* Radii */
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+
+  /* Shadows (subtle) */
+  --shadow-sm: 0 1px 2px rgba(20, 20, 20, 0.04);
+  --shadow-md: 0 8px 24px rgba(20, 20, 20, 0.05);
+  --shadow-lg: 0 24px 48px rgba(20, 20, 20, 0.08);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --t-fast: 160ms;
+  --t-base: 280ms;
+  --t-slow: 500ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
